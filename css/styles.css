@@ -1,4 +1,6 @@
 :root {
+  --cubic-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+
   --primary-text-color: #757575;
   --secondary-text-color: #212121;
   --tertiary-text-color: #ffffff;
@@ -8,8 +10,16 @@
   --primary-background-color: #ffffff;
   --secondary-background-color: #2f303a;
   --tertiary-background-color: #f5f4fa;
+  --border-header-color: #ececec;
   --border-projects-list-color: #eeeeee;
+  --content-hero-background-color: #c4c4c4;
+  --content-hero-gradient-color: rgba(47, 48, 58, 0.4);
+  --work-list-text-background-color: rgba(47, 48, 58, 0.8);
   --svg-icons-color: #afb1b8;
+  --footer-contacts-color: rgba(255, 255, 255, 0.6);
+  --footer-links-background-color: rgba(255, 255, 255, 0.1);
+
+  --project-overlay-background-color: rgba(33, 150, 243, 0.9);
 }
 body {
   color: var(--primary-text-color);
@@ -21,7 +31,7 @@ body {
   letter-spacing: 0.03em;
 }
 header {
-  border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid var(--border-header-color);
 }
 /** Точечные стили */
 .notunderline {
@@ -101,7 +111,7 @@ nav {
   line-height: 1.14;
   letter-spacing: 0.02em;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--cubic-bezier);
 }
 .site-nav .link:hover,
 .site-nav .link:focus {
@@ -148,7 +158,7 @@ nav {
   line-height: 1.14;
   letter-spacing: 0.02em;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--cubic-bezier);
 }
 .site-contacts .link:hover,
 .site-contacts .link:focus,
@@ -184,11 +194,11 @@ nav {
   padding-bottom: 200px;
   text-align: center;
 
-  background-color: #c4c4c4;
+  background-color: var(--content-hero-background-color);
   background-image: linear-gradient(
       to right,
-      rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4)
+      var(--content-hero-gradient-color),
+      var(--content-hero-gradient-color)
     ),
     url(../images/hero.jpg);
   background-position: center;
@@ -315,7 +325,7 @@ nav {
   padding-bottom: 27px;
 
   color: var(--tertiary-text-color);
-  background-color: rgba(47, 48, 58, 0.8);
+  background-color: var(--work-list-text-background-color);
 
   font-weight: 700;
   font-size: 14px;
@@ -376,8 +386,8 @@ nav {
   color: var(--svg-icons-color);
   background-color: var(--tertiary-text-color);
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--cubic-bezier),
+    background-color 250ms var(--cubic-bezier);
 }
 .team-list-social-links .link:hover,
 .team-list-social-links .link:focus {
@@ -417,7 +427,7 @@ nav {
 
   color: var(--svg-icons-color);
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--cubic-bezier);
 }
 .clients-list .link:hover,
 .clients-list .link:focus {
@@ -503,9 +513,9 @@ footer {
   color: var(--tertiary-text-color);
 }
 .address-contacts-list .contacts {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--footer-contacts-color);
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--cubic-bezier);
 }
 /** Соцсети */
 .join-title {
@@ -537,9 +547,9 @@ footer {
   border-radius: 50%;
 
   color: var(--tertiary-text-color);
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--footer-links-background-color);
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms var(--cubic-bezier);
 }
 .join-social-links .link:hover,
 .join-social-links .link:focus {
@@ -585,9 +595,9 @@ footer {
 
   cursor: pointer;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--cubic-bezier),
+    background-color 250ms var(--cubic-bezier),
+    box-shadow 250ms var(--cubic-bezier);
 }
 .filter-button:hover,
 .filter-button:focus {
@@ -620,7 +630,7 @@ footer {
 .projects-list .link {
   display: block;
 
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 250ms var(--cubic-bezier);
 }
 .projects-list .link:hover,
 .projects-list .link:focus {
@@ -628,6 +638,39 @@ footer {
 
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.project-img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.project-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  background-color: var(--project-overlay-background-color);
+
+  transform: translateY(100%);
+  transition: transform 250ms var(--cubic-bezier);
+}
+.project-img-wrapper:hover .project-overlay {
+  transform: translateY(0);
+}
+.project-overlay .text {
+  position: absolute;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-right: 24px;
+  padding-left: 24px;
+
+  color: var(--tertiary-text-color);
+
+  font-size: 18px;
+  line-height: 1.56;
 }
 .projects-list .item-img {
   display: block;
@@ -653,7 +696,7 @@ footer {
   line-height: 2;
   letter-spacing: 0.06em;
 }
-.projects-list-description .text {
+.projects-list-description .partition {
   margin-top: 0;
   margin-bottom: 0;
 
