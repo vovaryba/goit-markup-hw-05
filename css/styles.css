@@ -33,8 +33,18 @@ body {
   line-height: 1.71;
   letter-spacing: 0.03em;
 }
-header {
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  min-height: 80px;
   border-bottom: 1px solid var(--border-header-color);
+
+  background-color: var(--primary-background-color);
+
+  z-index: 1;
 }
 /** Точечные стили */
 .notunderline {
@@ -738,7 +748,8 @@ footer {
 
   transition: transform 250ms var(--cubic-bezier);
 }
-.projects-list .link:hover .project-overlay {
+.projects-list .link:hover .project-overlay,
+.projects-list .link:focus .project-overlay {
   transform: translateY(0);
 }
 .project-overlay .text {
